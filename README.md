@@ -1,61 +1,103 @@
-# Ntando Nkuna — Data & Analytics Portfolio
+import streamlit as st
+import os
 
----
 
----
+# --------------------------------------------------
+# PAGE CONFIG
+# --------------------------------------------------
+st.set_page_config(
+    page_title="Ntando Nkuna | Data & Analytics Portfolio",
+    layout="wide"
+)
 
-## Overview
 
-A modern interactive portfolio web application built with Streamlit, showcasing skills in:
+# --------------------------------------------------
+# BASE PATH (GitHub-safe)
+# --------------------------------------------------
+BASE_PATH = os.path.dirname(__file__)
 
-- Data Engineering  
-- Data Analytics  
-- Business Intelligence  
-- Data Visualization  
-- Dashboard Development  
 
-Designed to transform raw data into structured, insight-driven visual experiences.
+# --------------------------------------------------
+# HERO SECTION
+# --------------------------------------------------
+st.title("Ntando Nkuna")
+st.subheader("Data Engineering & Analytics Specialist")
 
----
+st.write(
+    """
+    I am a third-year ILS student with a strong aptitude for working with data,
+    focusing on transforming raw information into structured, insight-driven
+    outputs through analytics, visualization, and efficient data processes.
+    """
+)
 
-## Key Features
 
-### Modern UI Design
+# --------------------------------------------------
+# SKILLS SECTION
+# --------------------------------------------------
+st.header("Core Skills")
 
-- Full-screen hero section with animated fade-in effects  
-- Custom background banner image  
-- Clean, minimal typography layout  
+st.markdown("""
+- Data cleaning, transformation, and analysis  
+- Business intelligence and dashboard development  
+- Exploratory data analysis and reporting  
+""")
 
----
 
-### Interactive Tech Stack Display
+# --------------------------------------------------
+# TECH STACK (UPDATED ICON NAMES)
+# --------------------------------------------------
+st.header("Tech Stack")
 
-- Icon-based skill visualization grid  
-- Base64 SVG rendering for performance  
-- Responsive flex layout  
 
----
+icons = {
+    "Python": "icons/Python.svg",
+    "Pandas": "icons/Pandas.svg",
+    "DuckDB": "icons/DuckDB_logo.svg",
+    "Plotly": "icons/Plotly.svg",
+    "Streamlit": "icons/Streamlit.svg",
+    "SQL Server": "icons/Microsoft SQL Server.svg",
+    "PyCharm": "icons/PyCharm.svg",
+    "VS Code": "icons/Visual Studio Code (VS Code).svg"
+}
 
-### Portfolio Sections
 
-- Hero introduction  
-- Core skills breakdown  
-- Project highlights  
-- Tech stack showcase  
-- Feedback form UI  
+cols = st.columns(len(icons))
 
----
+for col, (name, path) in zip(cols, icons.items()):
+    full_path = os.path.join(BASE_PATH, path)
 
-### User Experience
+    with col:
+        if os.path.exists(full_path):
+            st.image(full_path, width=65)
+            st.caption(name)
+        else:
+            st.warning(f"{name} not found")
 
-- Smooth scrolling sections  
-- Fast Streamlit rendering  
-- Clean recruiter-friendly layout  
 
----
+# --------------------------------------------------
+# PROJECTS SECTION
+# --------------------------------------------------
+st.header("Highlighted Work")
 
-## UI Preview
+st.markdown("""
+- End-to-end analytics pipelines using Python and SQL  
+- Interactive dashboards built with Power BI and Plotly  
+- Data transformation and reporting using DuckDB  
+""")
 
-Add screenshots here later
 
----
+# --------------------------------------------------
+# FEEDBACK FORM
+# --------------------------------------------------
+st.header("Leave Feedback")
+
+with st.form("feedback_form"):
+    name = st.text_input("Your Name")
+    email = st.text_input("Email (optional)")
+    rating = st.slider("Rating", 1, 5, 4)
+    comment = st.text_area("Comments")
+    submitted = st.form_submit_button("Submit")
+
+if submitted:
+    st.success("Thank you for your feedback!")
