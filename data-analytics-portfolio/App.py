@@ -13,13 +13,13 @@ st.set_page_config(
 
 
 # --------------------------------------------------
-# BASE PATH (GitHub repo root)
+# BASE PATH (GitHub repo safe)
 # --------------------------------------------------
-BASE_PATH = os.path.dirname(__file__)  # safer for Streamlit deployment
+BASE_PATH = os.path.dirname(__file__)
 
 
 # --------------------------------------------------
-# Helpers
+# Helper Function
 # --------------------------------------------------
 @st.cache_data
 def get_file_as_base64(file_path: str):
@@ -51,29 +51,6 @@ if backgr:
             line-height: 1.6;
         }}
 
-        .tech-stack {{
-            display: flex;
-            justify-content: center;
-            gap: 40px;
-            margin-top: 30px;
-            flex-wrap: wrap;
-        }}
-
-        .tech-item {{
-            text-align: center;
-        }}
-
-        .tech-item img {{
-            width: 60px;
-            height: 60px;
-            margin-bottom: 8px;
-        }}
-
-        .tech-item span {{
-            font-size: 14px;
-            font-weight: 500;
-        }}
-
         @keyframes fadeIn {{
             from {{ opacity: 0; transform: translateY(15px); }}
             to {{ opacity: 1; transform: translateY(0); }}
@@ -85,7 +62,7 @@ if backgr:
 
 
 # --------------------------------------------------
-# Hero Section
+# HERO SECTION
 # --------------------------------------------------
 st.markdown(
     """
@@ -104,14 +81,12 @@ st.markdown(
 
 
 # --------------------------------------------------
-# Skills Section
+# SKILLS SECTION
 # --------------------------------------------------
 st.markdown(
     """
     <div class="fade-in">
         <h2>Core Skills</h2>
-
-        <h4>Data & Analytics</h4>
         <ul>
             <li>Data cleaning, transformation, and analysis</li>
             <li>Business intelligence and dashboard development</li>
@@ -124,7 +99,7 @@ st.markdown(
 
 
 # --------------------------------------------------
-# Tech Stack Icons Section
+# TECH STACK (FIXED GRID LAYOUT)
 # --------------------------------------------------
 icons = {
     "Python": os.path.join(BASE_PATH, "icons", "python.svg"),
@@ -139,18 +114,67 @@ icon_html = ""
 
 for name, path in icons.items():
     svg = get_file_as_base64(path)
+
     if svg:
         icon_html += f"""
         <div class="tech-item">
             <img src="data:image/svg+xml;base64,{svg}" />
-            <span>{name}</span>
+            <div class="tech-label">{name}</div>
         </div>
         """
 
+
 st.markdown(
     f"""
+    <style>
+
+    .tech-title {{
+        text-align: center;
+        margin-top: 40px;
+        margin-bottom: 10px;
+    }}
+
+    .tech-stack {{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 25px;
+        margin-top: 20px;
+    }}
+
+    .tech-item {{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 120px;
+        padding: 12px;
+        border-radius: 10px;
+        transition: transform 0.2s ease-in-out;
+    }}
+
+    .tech-item:hover {{
+        transform: translateY(-5px);
+    }}
+
+    .tech-item img {{
+        width: 55px;
+        height: 55px;
+        object-fit: contain;
+        margin-bottom: 8px;
+    }}
+
+    .tech-label {{
+        font-size: 13px;
+        font-weight: 500;
+        text-align: center;
+    }}
+
+    </style>
+
     <div class="fade-in">
-        <h2>Tech Stack</h2>
+        <h2 class="tech-title">Tech Stack</h2>
         <div class="tech-stack">
             {icon_html}
         </div>
@@ -161,7 +185,7 @@ st.markdown(
 
 
 # --------------------------------------------------
-# Projects Section
+# PROJECTS SECTION
 # --------------------------------------------------
 st.markdown(
     """
@@ -179,7 +203,7 @@ st.markdown(
 
 
 # --------------------------------------------------
-# Feedback Form (UI Only)
+# FEEDBACK SECTION
 # --------------------------------------------------
 st.markdown(
     """
