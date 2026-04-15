@@ -1,52 +1,79 @@
-#  Ntando Nkuna — Data & Analytics Portfolio
-
-![Streamlit](https://img.shields.io/badge/Built%20With-Streamlit-FF4B4B?style=for-the-badge&logo=streamlit)
-![Python](https://img.shields.io/badge/Python-3.10+-3776AB?style=for-the-badge&logo=python)
-![Status](https://img.shields.io/badge/Status-Active-success?style=for-the-badge)
-![License](https://img.shields.io/badge/License-MIT-blue?style=for-the-badge)
+# Ntando Nkuna — Data & Analytics Portfolio
 
 ---
 
-##  Overview
+##  Table of Contents
 
-A **modern interactive portfolio web application** built with **Streamlit**, showcasing skills in:
-
-- Data Engineering
-- Data Analytics
-- Business Intelligence
-- Data Visualization
-- Dashboard Development
-
-Designed to transform raw data into **structured, insight-driven visual experiences**.
-
----
-
-##  Key Visual Features
-
-###  Modern UI Design
-- Full-screen hero section with animated fade-in effects
-- Custom background banner image
-- Clean, minimal typography layout
-
-###  Interactive Tech Stack Display
-- Icon-based skill visualization grid
-- Base64 SVG rendering for performance
-- Responsive flex layout
-
-###  Portfolio Sections
-- Hero introduction
-- Core skills breakdown
-- Project highlights
-- Tech stack showcase
-- Feedback form UI
-
-###  User Experience
-- Smooth scrolling sections
-- Fast Streamlit rendering
-- Clean recruiter-friendly layout
+- Overview  
+- Key Features  
+  - Modern UI Design  
+  - Interactive Tech Stack Display  
+  - Portfolio Sections  
+  - User Experience  
+- UI Preview  
+- Project Structure  
+- Core Features  
+- Tech Stack  
+- Getting Started  
+- Deployment  
+- Feedback System  
+- Future Improvements  
+- Author  
 
 ---
 
-##  UI Preview
+## Overview
 
-> Add screenshots here later
+A modern interactive portfolio web application built with Streamlit, showcasing skills in:
+
+- Data Engineering  
+- Data Analytics  
+- Business Intelligence  
+- Data Visualization  
+- Dashboard Development  
+
+Designed to transform raw data into structured, insight-driven visual experiences.
+
+---
+
+## Key Features
+
+### Modern UI Design
+
+- Full-screen hero section with animated fade-in effects  
+- Custom background banner image  
+- Clean, minimal typography layout  
+
+---
+
+### Interactive Tech Stack Display
+
+- Icon-based skill visualization grid  
+- Base64 SVG rendering for performance  
+- Responsive flex layout  
+
+---
+
+### Portfolio Sections
+
+- Hero introduction  
+- Core skills breakdown  
+- Project highlights  
+- Tech stack showcase  
+- Feedback form UI  
+
+---
+
+### User Experience
+
+- Smooth scrolling sections  
+- Fast Streamlit rendering  
+- Clean recruiter-friendly layout  
+
+---
+
+## UI Preview
+
+Add screenshots here later
+
+---
