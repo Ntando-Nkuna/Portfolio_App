@@ -45,18 +45,20 @@ st.markdown("""
 
 
 # --------------------------------------------------
-# TECH STACK (FIXED USING st.image)
+# TECH STACK (UPDATED ICON NAMES)
 # --------------------------------------------------
 st.header("Tech Stack")
 
 
 icons = {
-    "Python": "icons/python.svg",
-    "Pandas": "icons/pandas.svg",
+    "Python": "icons/Python.svg",
+    "Pandas": "icons/Pandas.svg",
     "DuckDB": "icons/DuckDB_logo.svg",
-    "Plotly": "icons/plotly.svg",
-    "Streamlit": "icons/streamlit.svg",
-    "SQL Server": "icons/sqlserver.svg"
+    "Plotly": "icons/Plotly.svg",
+    "Streamlit": "icons/Streamlit.svg",
+    "SQL Server": "icons/Microsoft SQL Server.svg",
+    "PyCharm": "icons/PyCharm.svg",
+    "VS Code": "icons/Visual Studio Code (VS Code).svg"
 }
 
 
@@ -67,7 +69,7 @@ for col, (name, path) in zip(cols, icons.items()):
 
     with col:
         if os.path.exists(full_path):
-            st.image(full_path, width=70)
+            st.image(full_path, width=65)
             st.caption(name)
         else:
             st.warning(f"{name} not found")
