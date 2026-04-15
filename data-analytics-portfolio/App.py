@@ -12,7 +12,7 @@ st.set_page_config(
 
 
 # --------------------------------------------------
-# FIXED REPO PATH (as requested)
+# FIXED REPO PATH
 # --------------------------------------------------
 BASE_PATH = Path("data-analytics-portfolio")
 
@@ -48,18 +48,16 @@ st.markdown("""
 # --------------------------------------------------
 st.header("Tech Stack")
 
-
 icons = {
     "Python": "icons/Python.svg",
     "Pandas": "icons/Pandas.svg",
     "DuckDB": "icons/DuckDB_logo.svg",
-    "Plotly": "icons/Ploty.svg",  # as provided
+    "Plotly": "icons/Ploty.svg",
     "Streamlit": "icons/Streamlit.svg",
     "SQL Server": "icons/Microsoft SQL Server.svg",
     "PyCharm": "icons/PyCharm.svg",
     "VS Code": "icons/Visual Studio Code (VS Code).svg"
 }
-
 
 cols = st.columns(len(icons))
 
@@ -75,14 +73,46 @@ for col, (name, rel_path) in zip(cols, icons.items()):
 
 
 # --------------------------------------------------
-# CONNECT WITH ME (REPLACES PROJECTS SECTION)
+# CONNECT WITH ME (UPDATED WITH ICONS)
 # --------------------------------------------------
 st.header("Connect With Me")
 
-st.markdown("""
--  Medium: [About Me – The Builder Behind the Work](https://medium.com/@ntando.nkuna2099/about-me-the-builder-behind-the-work-2b54065667e9)  
-- 💻 GitHub: [Ntando-Nkuna](https://github.com/Ntando-Nkuna)  
-""")
+col1, col2 = st.columns(2)
+
+# Medium
+with col1:
+    medium_path = BASE_PATH / "icons/medium.jpg"
+    if medium_path.exists():
+        st.markdown(
+            f"""
+            <a href="https://medium.com/@ntando.nkuna2099" target="_blank">
+                <img src="data:image/jpg;base64,{open(medium_path, "rb").read().hex()}" 
+                style="width:80px; display:block; margin:auto;" />
+            </a>
+            """,
+            unsafe_allow_html=True
+        )
+        st.caption("Medium")
+    else:
+        st.error("Medium icon missing")
+
+# GitHub
+with col2:
+    github_path = BASE_PATH / "icons/github.png"
+    if github_path.exists():
+        st.markdown(
+            f"""
+            <a href="https://github.com/Ntando-Nkuna" target="_blank">
+                <img src="data:image/png;base64,{open(github_path, "rb").read().hex()}" 
+                style="width:80px; display:block; margin:auto;" />
+            </a>
+            """,
+            unsafe_allow_html=True
+        )
+        st.caption("GitHub")
+    else:
+        st.error("GitHub icon missing")
+
 
 # --------------------------------------------------
 # FEEDBACK FORM
