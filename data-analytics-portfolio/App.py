@@ -1,5 +1,6 @@
 import streamlit as st
 from pathlib import Path
+import base64
 
 
 # --------------------------------------------------
@@ -15,6 +16,37 @@ st.set_page_config(
 # FIXED REPO PATH
 # --------------------------------------------------
 BASE_PATH = Path("data-analytics-portfolio")
+
+
+# --------------------------------------------------
+# BACKGROUND IMAGE (FIXED - PRODUCTION SAFE)
+# --------------------------------------------------
+background_path = BASE_PATH / "background" / "banner.jpg"  # recommended format
+
+
+def get_base64(file_path):
+    with open(file_path, "rb") as f:
+        return base64.b64encode(f.read()).decode()
+
+
+if background_path.exists():
+    bg_base64 = get_base64(background_path)
+
+    st.markdown(
+        f"""
+        <style>
+        [data-testid="stAppViewContainer"] {{
+            background-image: url("data:image/jpg;base64,{bg_base64}");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }}
+        </style>
+        """,
+        unsafe_allow_html=True
+    )
+else:
+    st.warning(f"Background image not found: {background_path}")
 
 
 # --------------------------------------------------
@@ -73,25 +105,24 @@ for col, (name, rel_path) in zip(cols, icons.items()):
 
 
 # --------------------------------------------------
-# CONNECT WITH ME (STREAMLIT NATIVE BUTTONS)
+# CONNECT WITH ME
 # --------------------------------------------------
 st.header("Connect With Me")
 
 col1, col2 = st.columns(2)
 
-# Medium Button
 with col1:
     st.link_button(
         label="📘 Medium Profile",
         url="https://medium.com/@ntando.nkuna2099"
     )
 
-# GitHub Button
 with col2:
     st.link_button(
         label="💻 GitHub Profile",
         url="https://github.com/Ntando-Nkuna"
     )
+
 
 # --------------------------------------------------
 # FEEDBACK FORM
