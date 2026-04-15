@@ -73,46 +73,25 @@ for col, (name, rel_path) in zip(cols, icons.items()):
 
 
 # --------------------------------------------------
-# CONNECT WITH ME (UPDATED WITH ICONS)
+# CONNECT WITH ME (STREAMLIT NATIVE BUTTONS)
 # --------------------------------------------------
 st.header("Connect With Me")
 
 col1, col2 = st.columns(2)
 
-# Medium
+# Medium Button
 with col1:
-    medium_path = BASE_PATH / "icons/medium.jpg"
-    if medium_path.exists():
-        st.markdown(
-            f"""
-            <a href="https://medium.com/@ntando.nkuna2099" target="_blank">
-                <img src="data:image/jpg;base64,{open(medium_path, "rb").read().hex()}" 
-                style="width:80px; display:block; margin:auto;" />
-            </a>
-            """,
-            unsafe_allow_html=True
-        )
-        st.caption("Medium")
-    else:
-        st.error("Medium icon missing")
+    st.link_button(
+        label="📘 Medium Profile",
+        url="https://medium.com/@ntando.nkuna2099"
+    )
 
-# GitHub
+# GitHub Button
 with col2:
-    github_path = BASE_PATH / "icons/github.png"
-    if github_path.exists():
-        st.markdown(
-            f"""
-            <a href="https://github.com/Ntando-Nkuna" target="_blank">
-                <img src="data:image/png;base64,{open(github_path, "rb").read().hex()}" 
-                style="width:80px; display:block; margin:auto;" />
-            </a>
-            """,
-            unsafe_allow_html=True
-        )
-        st.caption("GitHub")
-    else:
-        st.error("GitHub icon missing")
-
+    st.link_button(
+        label="💻 GitHub Profile",
+        url="https://github.com/Ntando-Nkuna"
+    )
 
 # --------------------------------------------------
 # FEEDBACK FORM
