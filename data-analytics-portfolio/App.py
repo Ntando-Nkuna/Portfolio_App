@@ -138,50 +138,37 @@ for col, (name, rel_path) in zip(cols, icons.items()):
         else:
             st.error(f"Missing file: {full_path}")
 
-
 # --------------------------------------------------
-# CONNECT WITH ME (ICON LINKS)
+# CONNECT WITH ME (VERTICAL ICON LAYOUT)
 # --------------------------------------------------
 st.header("Connect With Me")
-
-col1, col2 = st.columns(2)
 
 medium_path = BASE_PATH / "icons/medium.jpg"
 github_path = BASE_PATH / "icons/github.png"
 
 
-# Medium Icon Link
-with col1:
-    if medium_path.exists():
+def render_icon(path, url, label):
+    if path.exists():
+        encoded = base64.b64encode(open(path, "rb").read()).decode()
+
         st.markdown(
             f"""
-            <a href="https://medium.com/@ntando.nkuna2099" target="_blank">
-                <img src="data:image/jpg;base64,{base64.b64encode(open(medium_path, "rb").read()).decode()}"
-                width="90" style="display:block;margin:auto;" />
-            </a>
-            <p style="text-align:center;">Medium</p>
+            <div style="text-align:center; margin-bottom:25px;">
+                <a href="{url}" target="_blank">
+                    <img src="data:image/png;base64,{encoded}" width="90"/>
+                </a>
+                <p style="color:white; margin-top:5px;">{label}</p>
+            </div>
             """,
             unsafe_allow_html=True
         )
     else:
-        st.error("Medium icon not found")
+        st.error(f"{label} icon not found")
 
 
-# GitHub Icon Link
-with col2:
-    if github_path.exists():
-        st.markdown(
-            f"""
-            <a href="https://github.com/Ntando-Nkuna" target="_blank">
-                <img src="data:image/png;base64,{base64.b64encode(open(github_path, "rb").read()).decode()}"
-                width="90" style="display:block;margin:auto;" />
-            </a>
-            <p style="text-align:center;">GitHub</p>
-            """,
-            unsafe_allow_html=True
-        )
-    else:
-        st.error("GitHub icon not found")
+# Vertical layout (stacked)
+render_icon(medium_path, "https://medium.com/@ntando.nkuna2099", "Medium")
+render_icon(github_path, "https://github.com/Ntando-Nkuna", "GitHub")
 
 # --------------------------------------------------
 # FEEDBACK FORM (BLACK TEXT)
