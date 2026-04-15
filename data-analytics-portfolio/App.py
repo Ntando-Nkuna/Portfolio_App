@@ -13,15 +13,15 @@ st.set_page_config(
 
 
 # --------------------------------------------------
-# FIXED REPO PATH
+# BASE PATH
 # --------------------------------------------------
 BASE_PATH = Path("data-analytics-portfolio")
 
 
 # --------------------------------------------------
-# BACKGROUND IMAGE (FIXED - PRODUCTION SAFE)
+# BACKGROUND IMAGE
 # --------------------------------------------------
-background_path = BASE_PATH / "background" / "banner.jpg"  # recommended format
+background_path = BASE_PATH / "background" / "banner.jpg"
 
 
 def get_base64(file_path):
@@ -35,18 +35,46 @@ if background_path.exists():
     st.markdown(
         f"""
         <style>
+
+        /* BACKGROUND */
         [data-testid="stAppViewContainer"] {{
             background-image: url("data:image/jpg;base64,{bg_base64}");
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
         }}
+
+        /* FORCE ALL TEXT TO WHITE */
+        html, body, [class*="css"] {{
+            color: white !important;
+        }}
+
+        /* Streamlit main text elements */
+        h1, h2, h3, h4, h5, h6, p, span, li, label {{
+            color: white !important;
+        }}
+
+        /* Sidebar (if used later) */
+        section[data-testid="stSidebar"] * {{
+            color: white !important;
+        }}
+
+        /* Input fields text */
+        input, textarea {{
+            color: white !important;
+        }}
+
+        /* Improve readability overlay */
+        .stApp {{
+            background-color: rgba(0, 0, 0, 0.40);
+        }}
+
         </style>
         """,
         unsafe_allow_html=True
     )
 else:
-    st.warning(f"Background image not found: {background_path}")
+    st.warning(f"Background not found: {background_path}")
 
 
 # --------------------------------------------------
