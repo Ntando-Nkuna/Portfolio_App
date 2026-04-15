@@ -36,7 +36,7 @@ if background_path.exists():
         f"""
         <style>
 
-        /* BACKGROUND */
+        /* GLOBAL BACKGROUND */
         [data-testid="stAppViewContainer"] {{
             background-image: url("data:image/jpg;base64,{bg_base64}");
             background-size: cover;
@@ -44,29 +44,36 @@ if background_path.exists():
             background-repeat: no-repeat;
         }}
 
-        /* FORCE ALL TEXT TO WHITE */
+        /* GLOBAL TEXT = WHITE */
         html, body, [class*="css"] {{
             color: white !important;
         }}
 
-        /* Streamlit main text elements */
         h1, h2, h3, h4, h5, h6, p, span, li, label {{
             color: white !important;
         }}
 
-        /* Sidebar (if used later) */
-        section[data-testid="stSidebar"] * {{
-            color: white !important;
-        }}
-
-        /* Input fields text */
-        input, textarea {{
-            color: white !important;
-        }}
-
-        /* Improve readability overlay */
+        /* DARK OVERLAY */
         .stApp {{
             background-color: rgba(0, 0, 0, 0.40);
+        }}
+
+        /* --------------------------------------------------
+           CONNECT SECTION (BLACK TEXT OVERRIDE)
+        -------------------------------------------------- */
+        .connect-section, .connect-section * {{
+            color: black !important;
+        }}
+
+        /* --------------------------------------------------
+           FEEDBACK FORM (BLACK TEXT OVERRIDE)
+        -------------------------------------------------- */
+        div[data-testid="stForm"] * {{
+            color: black !important;
+        }}
+
+        input, textarea {{
+            color: black !important;
         }}
 
         </style>
@@ -133,8 +140,10 @@ for col, (name, rel_path) in zip(cols, icons.items()):
 
 
 # --------------------------------------------------
-# CONNECT WITH ME
+# CONNECT WITH ME (BLACK TEXT SECTION)
 # --------------------------------------------------
+st.markdown('<div class="connect-section">', unsafe_allow_html=True)
+
 st.header("Connect With Me")
 
 col1, col2 = st.columns(2)
@@ -151,9 +160,11 @@ with col2:
         url="https://github.com/Ntando-Nkuna"
     )
 
+st.markdown("</div>", unsafe_allow_html=True)
+
 
 # --------------------------------------------------
-# FEEDBACK FORM
+# FEEDBACK FORM (BLACK TEXT)
 # --------------------------------------------------
 st.header("Leave Feedback")
 
