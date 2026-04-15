@@ -140,28 +140,48 @@ for col, (name, rel_path) in zip(cols, icons.items()):
 
 
 # --------------------------------------------------
-# CONNECT WITH ME (BLACK TEXT SECTION)
+# CONNECT WITH ME (ICON LINKS)
 # --------------------------------------------------
-st.markdown('<div class="connect-section">', unsafe_allow_html=True)
-
 st.header("Connect With Me")
 
 col1, col2 = st.columns(2)
 
+medium_path = BASE_PATH / "icons/medium.jpg"
+github_path = BASE_PATH / "icons/github.png"
+
+
+# Medium Icon Link
 with col1:
-    st.link_button(
-        label="📘 Medium Profile",
-        url="https://medium.com/@ntando.nkuna2099"
-    )
+    if medium_path.exists():
+        st.markdown(
+            f"""
+            <a href="https://medium.com/@ntando.nkuna2099" target="_blank">
+                <img src="data:image/jpg;base64,{base64.b64encode(open(medium_path, "rb").read()).decode()}"
+                width="90" style="display:block;margin:auto;" />
+            </a>
+            <p style="text-align:center;">Medium</p>
+            """,
+            unsafe_allow_html=True
+        )
+    else:
+        st.error("Medium icon not found")
 
+
+# GitHub Icon Link
 with col2:
-    st.link_button(
-        label="💻 GitHub Profile",
-        url="https://github.com/Ntando-Nkuna"
-    )
-
-st.markdown("</div>", unsafe_allow_html=True)
-
+    if github_path.exists():
+        st.markdown(
+            f"""
+            <a href="https://github.com/Ntando-Nkuna" target="_blank">
+                <img src="data:image/png;base64,{base64.b64encode(open(github_path, "rb").read()).decode()}"
+                width="90" style="display:block;margin:auto;" />
+            </a>
+            <p style="text-align:center;">GitHub</p>
+            """,
+            unsafe_allow_html=True
+        )
+    else:
+        st.error("GitHub icon not found")
 
 # --------------------------------------------------
 # FEEDBACK FORM (BLACK TEXT)
