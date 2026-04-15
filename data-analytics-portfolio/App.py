@@ -75,16 +75,14 @@ for col, (name, rel_path) in zip(cols, icons.items()):
 
 
 # --------------------------------------------------
-# PROJECTS SECTION
+# CONNECT WITH ME (REPLACES PROJECTS SECTION)
 # --------------------------------------------------
-st.header("Highlighted Work")
+st.header("Connect With Me")
 
 st.markdown("""
-- End-to-end analytics pipelines using Python and SQL  
-- Interactive dashboards built with Power BI and Plotly  
-- Data transformation and reporting using DuckDB  
+-  Medium: [About Me – The Builder Behind the Work](https://medium.com/@ntando.nkuna2099/about-me-the-builder-behind-the-work-2b54065667e9)  
+- 💻 GitHub: [Ntando-Nkuna](https://github.com/Ntando-Nkuna)  
 """)
-
 
 # --------------------------------------------------
 # FEEDBACK FORM
