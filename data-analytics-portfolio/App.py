@@ -45,20 +45,20 @@ st.markdown("""
 
 
 # --------------------------------------------------
-# TECH STACK (UPDATED ICON NAMES)
+# TECH STACK (FIXED & CLEAN)
 # --------------------------------------------------
 st.header("Tech Stack")
 
 
 icons = {
-    "Python": "icons/Python.svg",
-    "Pandas": "icons/Pandas.svg",
-    "DuckDB": "icons/DuckDB_logo.svg",
-    "Plotly": "icons/Plotly.svg",
-    "Streamlit": "icons/Streamlit.svg",
-    "SQL Server": "icons/Microsoft SQL Server.svg",
-    "PyCharm": "icons/PyCharm.svg",
-    "VS Code": "icons/Visual Studio Code (VS Code).svg"
+    "Python": "icons/python.svg",
+    "Pandas": "icons/pandas.svg",
+    "DuckDB": "icons/duckdb.svg",
+    "Plotly": "icons/plotly.svg",
+    "Streamlit": "icons/streamlit.svg",
+    "SQL Server": "icons/microsoft_sql_server.svg",
+    "PyCharm": "icons/pycharm.svg",
+    "VS Code": "icons/vscode.svg"
 }
 
 
@@ -72,7 +72,7 @@ for col, (name, path) in zip(cols, icons.items()):
             st.image(full_path, width=65)
             st.caption(name)
         else:
-            st.warning(f"{name} not found")
+            st.error(f"Missing file: {path}")
 
 
 # --------------------------------------------------
