@@ -2,24 +2,6 @@
 
 ---
 
-##  Table of Contents
-
-- Overview  
-- Key Features  
-  - Modern UI Design  
-  - Interactive Tech Stack Display  
-  - Portfolio Sections  
-  - User Experience  
-- UI Preview  
-- Project Structure  
-- Core Features  
-- Tech Stack  
-- Getting Started  
-- Deployment  
-- Feedback System  
-- Future Improvements  
-- Author  
-
 ---
 
 ## Overview
