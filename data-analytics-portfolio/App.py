@@ -139,7 +139,7 @@ for col, (name, rel_path) in zip(cols, icons.items()):
             st.error(f"Missing file: {full_path}")
 
 # --------------------------------------------------
-# CONNECT WITH ME (VERTICAL ICON LAYOUT)
+# CONNECT WITH ME (VERTICAL + LEFT-ALIGNED ICONS)
 # --------------------------------------------------
 st.header("Connect With Me")
 
@@ -153,11 +153,13 @@ def render_icon(path, url, label):
 
         st.markdown(
             f"""
-            <div style="text-align:center; margin-bottom:25px;">
-                <a href="{url}" target="_blank">
-                    <img src="data:image/png;base64,{encoded}" width="90"/>
+            <div style="display:flex; flex-direction:column; align-items:flex-start; margin-bottom:20px;">
+                <a href="{url}" target="_blank" style="text-decoration:none;">
+                    <img src="data:image/png;base64,{encoded}" width="85"/>
                 </a>
-                <p style="color:white; margin-top:5px;">{label}</p>
+                <span style="color:white; font-size:14px; margin-top:5px;">
+                    {label}
+                </span>
             </div>
             """,
             unsafe_allow_html=True
@@ -166,10 +168,9 @@ def render_icon(path, url, label):
         st.error(f"{label} icon not found")
 
 
-# Vertical layout (stacked)
+# LEFT-ALIGNED STACKED ICONS
 render_icon(medium_path, "https://medium.com/@ntando.nkuna2099", "Medium")
 render_icon(github_path, "https://github.com/Ntando-Nkuna", "GitHub")
-
 # --------------------------------------------------
 # FEEDBACK FORM (BLACK TEXT)
 # --------------------------------------------------
