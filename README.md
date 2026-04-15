@@ -45,3 +45,5 @@ This project demonstrates my ability to transform raw data into meaningful insig
 - 💻 GitHub: https://github.com/Ntando-Nkuna  
 
 ---
+
+https://portfolioapp-mrc6q9misvneqdauwjq9i3.streamlit.app/
